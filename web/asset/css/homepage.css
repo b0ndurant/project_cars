@@ -1,0 +1,37 @@
+.Logo {
+    text-align: center;
+}
+h2 {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+hr {
+    margin-right: 120px;
+    margin-left: 120px;
+}
+
+section {
+    padding-bottom: 40px
+}
+
+#presentation {
+    padding-top: 70px;
+    text-align: center;
+}
+
+.text_presentation {
+    padding-bottom: 50px;
+}
+
+/*---------- CSS CARS ---------*/
+
+#cars .col-md-6 {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+#cars img {
+    width: 80%;
+    height: 350px;
+}

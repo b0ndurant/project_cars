@@ -1,0 +1,17 @@
+h3 {
+    padding-bottom: 50px;
+}
+
+#contact {
+    padding-top: 70px;
+    text-align: center;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 20px;
+    margin: 16px;
+    border: 1px solid;
+    border-radius: 4px;
+    background-color: white;
+}

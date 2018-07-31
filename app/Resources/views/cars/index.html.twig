@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('asset/css/cars.css') }}">
+{% endblock %}
+
+{% block body %}
+    <section id="cars_index">
+        <div class="container">
+            <div class="row">
+                <h1>Nos Vehicules</h1>
+            </div>
+            <div class="row">
+                {% for article in articles %}
+                    <div class="col-md-4">
+                        <h4>
+                            {{ article.title }}
+                        </h4>
+                        <p>
+                            <img src="{{ asset('uploads/images/' ~ article.mainPicture) }}">
+                        </p>
+                        <p>
+                            Prix : {{ article.price }} €
+                        </p>
+                        <a class="btn btn-primary" href="{{ path('article_show', { 'id': article.id }) }}">En savoir plus</a>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="navigation">
+                {{ knp_pagination_render(articles) }}
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}

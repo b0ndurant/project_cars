@@ -1,0 +1,42 @@
+/*--------- NAVBAR ---------*/
+.navbar-brand {
+    padding: 0;
+}
+.navbar-right {
+    margin-right: 0;
+    font-size: 18px;
+}
+
+/*----------- FOOTER ------------*/
+
+.footer {
+    background: #121212;
+    height: auto;
+    position: relative;
+    width: 100%;
+    border-bottom: 1px solid #CCCCCC;
+    border-top: 1px solid #DDDDDD;
+}
+
+.footer p {
+    color: white;
+}
+
+.footer img {
+    width: 20vw;
+}
+.footer h3 {
+    border-bottom: 1px solid #BAC1C8;
+    color: #54697E;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 27px;
+    padding: 40px 0 10px;
+    text-transform: uppercase;
+}
+
+footer .copyrights {
+    padding-top: 20px;
+    background: #1e1e1e;
+}
+

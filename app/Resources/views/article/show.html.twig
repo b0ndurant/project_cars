@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('asset/css/show.css') }}">
+{% endblock %}
+{% block body %}
+    <section id="cars_show">
+        <div class="container">
+            <div class="row">
+                <h1>Vehicules</h1>
+            </div>
+        </div>
+        <div class="container">
+            <div id="main_area">
+                <!-- Slider -->
+                <div class="row">
+                    <div class="col-xs-12" id="slider">
+                        <!-- Top part of the slider -->
+                        <div class="row">
+                            <div class="col-sm-8" id="carousel-bounding-box">
+                                <div class="carousel slide" id="myCarousel">
+                                    <!-- Carousel items -->
+                                    <div class="carousel-inner">
+                                        <div class="active item" data-slide-number="0">
+                                            <img src="{{ asset('uploads/images/' ~ article.mainPicture) }}"></div>
+                                        {% set i = 1 %}
+                                        {% for images in article.galleryPicture %}
+                                        <div class="item" data-slide-number="{{ i }}">
+                                            <img src="{{ asset('uploads/images/' ~ images) }}"></div>
+                                            {% set i = i + 1 %}
+                                        {% endfor %}
+                                    </div><!-- Carousel nav -->
+                                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                                        <span class="glyphicon glyphicon-chevron-left"></span>
+                                    </a>
+                                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4" id="carousel-text"></div>
+
+                            <div id="slide-content" style="display: none;">
+                                <div id="slide-content-0">
+                                    <h2>{{ article.title }}</h2>
+                                    <p>description : </p>
+                                    <p>{{ article.content }}</p>
+                                    <p class="sub-text">Prix : {{ article.price }} €</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/Slider-->
+
+                <div class="row hidden-xs" id="slider-thumbs">
+                    <!-- Bottom switcher of slider -->
+                    <ul class="hide-bullets">
+                        <li class="col-sm-2">
+                            <a class="thumbnail" id="carousel-selector-0"><img src="{{ asset('uploads/images/' ~ article.mainPicture) }}"></a>
+                        </li>
+                        {% set i = 1 %}
+                        {% for images in article.galleryPicture %}
+                            <li class="col-sm-2">
+                                <a class="thumbnail" id="carousel-selector-{{ i }}"><img src="{{ asset('uploads/images/' ~ images) }}"></a>
+                            </li>
+                            {% set i = i + 1 %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% block javascripts %}
+        <script>
+            jQuery(document).ready(function($) {
+
+                $('#myCarousel').carousel({
+                    interval: 5000
+                });
+
+                $('#carousel-text').html($('#slide-content-0').html());
+
+                //Handles the carousel thumbnails
+                $('[id^=carousel-selector-]').click( function(){
+                    var id_selector = $(this).attr("id");
+                    var id = id_selector.substr(id_selector.length -1);
+                    var id = parseInt(id);
+                    $('#myCarousel').carousel(id);
+                });
+
+
+                // When the carousel slides, auto update the text
+                $('#myCarousel').on('slid.bs.carousel', function (e) {
+                    var id = $('.item.active').data('slide-number');
+                    $('#carousel-text').html($('#slide-content-'+id).html());
+                });
+            });
+        </script>
+    {% endblock %}
+
+
+{% endblock %}

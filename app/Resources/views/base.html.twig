@@ -1,0 +1,99 @@
+{# app/Resources/views/base.html.twig #}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <!-- maximum-scale=1.0 is now deprecated -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Martin aurelien">
+    <meta name="description" content="cars est un vendeur d'occasion garantie">
+    <meta name="keywords" content="vehicule d'occasion, utilitaire d'occasion, garantie, roubaix, occasion">
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
+    <title>Cars - {% block title %}{% endblock %}</title>
+
+    <!-- CSS -->
+    <!-- Latest compiled and minified Bootstrap CSS files -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">    <link rel="stylesheet" href="{{ asset('asset/css/Plugins/fontawesome.min.css') }}">
+
+    <!-- Personal CSS -->
+    <link rel="stylesheet" href="{{ asset('asset/css/style.css') }}">
+    {% block stylesheets %}
+    {% endblock %}
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+</head>
+<body>
+<header>
+    {% block header %}
+        <div class="container-fluid">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="/"><img src="{{ asset('asset/img/Logo.png') }}" class="navbar-brand" alt="photo_logo"></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/">Accueil</a></li>
+                        <li><a href="{{ path('vehicules_index') }}">Nos vehicules</a></li>
+                        <li><a href="{{ path('homepage') }}#garanty">Nos garanties</a></li>
+                        <li><a href="{{ path('contact_index') }}">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+    {% endblock %}
+</header>
+{% block body %}{% endblock %}
+<footer>
+    {% block footer %}
+        <div class="footer" id="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4 col-xs-12">
+                        <h3> Contact </h3>
+                        <p><i class="far fa-address-card"></i> : 123 rue de la champette roubaix </p>
+                        <p><i class="fas fa-envelope"></i> : email@email.com </p>
+                        <p><i class="fas fa-phone"></i> : 03.03.03.03.03 </p>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <h3> Horaires d'ouvertures </h3>
+                        <p>Du lundi au vendredi : 9h00 à 12h00 / 14h00 à 18h30</p>
+                        <p>Le samedi : 9h00 à 12h00</p>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <img src="{{ asset('asset/img/Logo.png') }}">
+                    </div>
+                </div>
+                <div class="row copyrights">
+                    <div class="col-md-3 col-xs-12">
+                        <p><a href="{{ path('article_index') }}">Espace administrateur</a></p>
+                    </div>
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </div>
+    {% endblock %}
+</footer>
+
+<script src="{{ asset('asset/js/jquery/jquery-3.3.1.min.js') }}"></script>
+<script src="{{ asset('asset/js/Bootstrap/bootstrap.min.js') }}"></script>
+<script src="{{ asset('asset/js/Font-awesome/all.js') }}"></script>
+<script src="{{ asset('asset/js/main.js') }}"></script>
+
+{% block javascripts %}
+ {% endblock %}
+
+</body>
+</html>

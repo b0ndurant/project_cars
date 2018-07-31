@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('asset/css/admin_Article.css') }}">
+{% endblock %}
+
+{% block body %}
+    <section id="cars_news">
+        <div class="container">
+            <div class="row">
+                <h1>Nouveau vehicule</h1>
+
+                {{ form_start(form) }}
+                <div>
+                    <p class="title">Titre</p>
+                    {{ form_widget(form.title) }}
+                </div>
+                <div>
+                    <p class="content">Description</p>
+                    {{ form_widget(form.content) }}
+                </div>
+                <div>
+                    <p class="price">Prix</p>
+                    {{ form_widget(form.price) }}
+                </div>
+                <div>
+                    <p class="mainPicture">Photo Principale</p>
+                    {{ form_widget(form.mainPicture) }}
+                </div>
+                <div>
+                    <p class="galleryPicture">Gallery Photo</p>
+                    {{ form_widget(form.galleryPicture) }}
+                </div>
+                <div class="btn_create">
+                    <input type="submit" value="Créer" />
+                </div>
+                {{ form_end(form) }}
+                <div>
+                    <a href="{{ path('article_index') }}">retouner a la liste des vehicules</a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

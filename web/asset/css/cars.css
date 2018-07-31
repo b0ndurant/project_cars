@@ -1,0 +1,19 @@
+#cars_index h1 {
+    padding-top: 60px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+#cars_index .navigation, .btn_create {
+    text-align: center;
+}
+
+#cars_index .col-md-4 {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+#cars_index img {
+    width: 80%;
+    height: 350px;
+}

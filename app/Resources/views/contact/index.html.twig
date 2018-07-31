@@ -1,0 +1,52 @@
+{# app/Resources/views/contact/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('asset/css/contact.css') }}">
+{% endblock %}
+
+{% block body %}
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <h3 class="contact-title">Renseignements à compléter </h3>
+                {{ form_start(form) }}
+                <div>
+                    {{ form_widget(form.name) }}
+                    <div class="errors">
+                        {{ form_errors(form.name) }}
+                    </div>
+                </div>
+                <div>
+                    {{ form_widget(form.email) }}
+                    <div class="errors">
+                        {{ form_errors(form.email) }}
+                    </div>
+                </div>
+                <div>
+                    {{ form_widget(form.subject) }}
+                    <div class="errors">
+                        {{ form_errors(form.subject) }}
+                    </div>
+                </div>
+                <div>
+                    {{ form_widget(form.message) }}
+                    <div class="errors">
+                        {{ form_errors(form.message) }}
+                    </div>
+                </div>
+
+                {# Render CSRF token etc .#}
+                <div style="display:none">
+                    {{ form_rest(form) }}
+                </div>
+
+                <input type="submit" value="Envoyer">
+
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </section>
+{%  endblock %}

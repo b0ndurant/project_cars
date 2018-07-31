@@ -1,0 +1,81 @@
+/*------ CSS ARTICLE NEWS ------*/
+#cars_news .row div {
+    padding-bottom: 30px;
+}
+
+#cars_news {
+    text-align: center;
+}
+
+input[type=file] {
+    display: inline-block;
+}
+
+#cars_news h1 {
+    padding-top: 60px;
+    padding-bottom: 50px;
+}
+
+#cars_news input[type=text], select, textarea {
+    width: 80%;
+    padding: 20px;
+    margin: 16px;
+    border: 1px solid;
+    border-radius: 4px;
+    background-color: white;
+}
+
+/*------- CSS ARTICLE EDIT --------*/
+
+#cars_edit {
+    text-align: center;
+}
+
+#cars_edit h1 {
+    padding-top: 60px;
+    padding-bottom: 50px;
+}
+
+#cars_edit .row div {
+    padding-bottom: 30px;
+}
+
+#cars_edit input[type=text], select, textarea {
+    width: 80%;
+    padding: 20px;
+    margin: 16px;
+    border: 1px solid;
+    border-radius: 4px;
+    background-color: white;
+}
+
+#cars_edit img {
+    width: 20%;
+    padding-bottom: 30px;
+}
+
+.mainPicture, .galleryPicture {
+    padding-bottom: 20px;
+}
+
+/*------ CSS ARTICLE INDEX -------*/
+
+#cars_index h1 {
+    padding-top: 60px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+#cars_index .navigation, .btn_create {
+    text-align: center;
+}
+
+#cars_index .col-md-4 {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+#cars_index img {
+    width: 80%;
+    height: 350px;
+}

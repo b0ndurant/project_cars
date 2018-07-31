@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('asset/css/admin_Article.css') }}">
+{% endblock %}
+
+{% block body %}
+    <section id="cars_edit">
+        <div class="container">
+            <div class="row">
+                <h1>Modifier vehicule</h1>
+
+                {{ form_start(edit_form) }}
+                <div>
+                    <h3 class="title">Titre</h3>
+                    {{ form_widget(edit_form.title) }}
+                </div>
+                <div>
+                    <h3 class="content">Description</h3>
+                    {{ form_widget(edit_form.content) }}
+                </div>
+                <div>
+                    <h3 class="price">Prix</h3>
+                    {{ form_widget(edit_form.price) }}
+                </div>
+                <div>
+                    <h3 class="mainPicture">Photo principale</h3>
+                    <img src="{{ asset('uploads/images/' ~ article.mainPicture) }}">
+                    <div class="choose_file">
+                        {{ form_widget(edit_form.mainPicture) }}
+                    </div>
+                </div>
+                <div>
+                    <h3 class="galleryPicture">Gallery photo</h3>
+                    {% for images in article.galleryPicture %}
+                        <img src="{{ asset('uploads/images/' ~ images) }}">
+                    {% endfor %}
+                    <div class="choose_file">
+                        {{ form_widget(edit_form.galleryPicture) }}
+                    </div>
+                </div>
+                <div class="btn_edit">
+                    {{ form_widget(edit_form) }}
+                    <input type="submit" value="Modifier" class="btn btn-primary" />
+                </div>
+                {{ form_end(edit_form) }}
+
+                {{ form_start(delete_form) }}
+                <div class="btn_delete">
+                    <input type="submit" value="Supprimer" class="btn btn-primary">
+                </div>
+                {{ form_end(delete_form) }}
+                <div>
+                    <a href="{{ path('article_index') }}" class="btn btn-primary">retouner a la liste des vehicules</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

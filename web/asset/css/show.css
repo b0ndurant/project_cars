@@ -1,0 +1,14 @@
+/* CSS used here will be applied after bootstrap.css */
+.hide-bullets {
+    list-style:none;
+    margin-left: -40px;
+    margin-top:20px;
+}
+
+#cars_show #main_area #myCarousel .item img {
+    width: 100%;
+    height: 500px;
+}
+
+/*------- ZOOM PICTURE ------*/
+
