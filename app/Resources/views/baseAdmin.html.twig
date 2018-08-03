@@ -1,0 +1,75 @@
+{# app/Resources/views/baseAdmin.html.twig #}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <!-- maximum-scale=1.0 is now deprecated -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Martin aurelien">
+    <meta name="description" content="cars est un vendeur d'occasion garantie">
+    <meta name="keywords" content="vehicule d'occasion, utilitaire d'occasion, garantie, roubaix, occasion">
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
+    <title>RL Négoce Auto - Admin{% block title %}{% endblock %}</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ asset('asset/css/Bootstrap/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/css/admin.css') }}">
+
+
+    {% block stylesheets %}
+    {% endblock %}
+
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('asset/img/Logo.jpg') }}">
+</head>
+<body>
+{% block header %}
+    <nav class="navbar navbar-inverse navbar-fixed-left">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#hero"><img src="{{ asset('asset/img/Logo.png') }}" class="navbar-brand" alt="logo RG Négoce auto" title="" /></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ path('article_index') }}">Liste vehicules</a></li>
+                    <li><a href="{{ path('article_new') }}">Ajouter un vehicules</a></li>
+                    <li><a href="{{ path('fos_user_profile_edit') }}">Mon compte</a></li>
+                    <li><a href="{{ path('homepage') }}">Retourner sur le site web</a></li>
+
+
+                    <li class="log-out">
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            <a class="color-logout" href="{{ path('fos_user_security_logout') }}">
+                                <span class="fa fas fa-power-off"></span>
+                                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                            </a>
+                        {% else %}
+                            <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                        {% endif %}
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block body %}
+{% endblock %}
+
+
+<script src="{{ asset('asset/js/jquery/jquery-3.3.1.min.js') }}"></script>
+<script src="{{ asset('asset/js/Bootstrap/bootstrap.min.js') }}"></script>
+<script src="{{ asset('asset/js/Font-awesome/all.js') }}"></script>
+{% block javascripts %}
+{% endblock %}
+
+</body>
+</html>

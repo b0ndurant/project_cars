@@ -10,5 +10,15 @@
     height: 500px;
 }
 
-/*------- ZOOM PICTURE ------*/
+#cars_show h2 {
+    text-align: center;
+    padding-bottom: 30px;
+}
 
+#cars_show .description h3 {
+    padding-bottom: 20px;
+}
+
+#cars_show .description {
+    padding-bottom: 30px;
+}

@@ -10,8 +10,13 @@ h3 {
 input, select, textarea {
     width: 100%;
     padding: 20px;
-    margin: 16px;
+    margin-bottom: 26px;
     border: 1px solid;
     border-radius: 4px;
     background-color: white;
+}
+
+.errors ul {
+    list-style-type: none;
+    color: red;
 }

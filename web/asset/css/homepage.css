@@ -35,3 +35,18 @@ section {
     width: 80%;
     height: 350px;
 }
+
+/*-------- CSS GARANTY -------*/
+
+.text .border h3 {
+    padding-bottom: 20px;
+}
+.border {
+    border: solid 1px green;
+    border-radius: 40px;
+    padding: 10px;
+}
+
+.text {
+    padding-right: 50px;
+}

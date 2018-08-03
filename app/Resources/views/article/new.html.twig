@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseAdmin.html.twig' %}
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('asset/css/admin_Article.css') }}">
 {% endblock %}
@@ -31,7 +31,7 @@
                     {{ form_widget(form.galleryPicture) }}
                 </div>
                 <div class="btn_create">
-                    <input type="submit" value="Créer" />
+                    <input type="submit" value="Créer" class="btn btn-primary"/>
                 </div>
                 {{ form_end(form) }}
                 <div>

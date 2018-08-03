@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseAdmin.html.twig' %}
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('asset/css/show.css') }}">
 {% endblock %}
@@ -24,8 +24,8 @@
                                             <img src="{{ asset('uploads/images/' ~ article.mainPicture) }}"></div>
                                         {% set i = 1 %}
                                         {% for images in article.galleryPicture %}
-                                        <div class="item" data-slide-number="{{ i }}">
-                                            <img src="{{ asset('uploads/images/' ~ images) }}"></div>
+                                            <div class="item" data-slide-number="{{ i }}">
+                                                <img src="{{ asset('uploads/images/' ~ images) }}"></div>
                                             {% set i = i + 1 %}
                                         {% endfor %}
                                     </div><!-- Carousel nav -->
@@ -43,9 +43,11 @@
                             <div id="slide-content" style="display: none;">
                                 <div id="slide-content-0">
                                     <h2>{{ article.title }}</h2>
-                                    <p>description : </p>
-                                    <p>{{ article.content }}</p>
-                                    <p class="sub-text">Prix : {{ article.price }} €</p>
+                                    <div class="description">
+                                        <h3>description : </h3>
+                                        <p>{{ article.content }}</p>
+                                    </div>
+                                    <h3 class="sub-text">Prix : {{ article.price }} €</h3>
                                 </div>
                             </div>
                         </div>

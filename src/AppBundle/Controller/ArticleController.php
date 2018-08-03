@@ -37,7 +37,7 @@ class ArticleController extends Controller
         $result    = $paginator->paginate(
             $articles,
             $request->query->getInt('page', 1),
-            $request->query->getInt('limit', 3)
+            $request->query->getInt('limit', 6)
         );
 
         return $this->render('article/index.html.twig', array(
