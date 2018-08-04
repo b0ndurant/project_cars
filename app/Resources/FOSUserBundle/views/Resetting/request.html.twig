@@ -1,5 +1,31 @@
-{% extends "@FOSUser/layout.html.twig" %}
+{% trans_default_domain 'FOSUserBundle' %}
+{% block stylesheets %}
+    <!-- Personal CSS -->
+    <link rel="stylesheet" href="{{ asset('asset/css/Bootstrap/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/css/login.css') }}">
+{% endblock %}
 
 {% block fos_user_content %}
-{% include "@FOSUser/Resetting/request_content.html.twig" %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('build/img/Logo.png') }}" />
+    <section class="background-image">
+        <div class="container-fluid">
+            <div class="row">
+                <form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="fos_user_resetting_request">
+                    <div class="col-md-12">
+                        <div class="login-container">
+                            <h1 class="title-login">Nom d'utilisateur ou adresse Email</h1><br>
+                            <div>
+                                <input class="input-mail" type="text" id="username"  placeholder="Nom d'utilisateur ou email" name="username" required="required" />
+                            </div>
+                            <div>
+                                <input type="submit" class="btn btn-primary" value="{{ 'resetting.request.submit'|trans }}" />
+                            </div>
+                            <br>
+                            <a href="{{ path('fos_user_security_login') }}">Retourner sur la page login</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
 {% endblock fos_user_content %}

@@ -5,6 +5,6 @@ jQuery(document).ready(function( $ ) {
         $("#myModal").modal("show");
     });
 
-    new WOW() .init();
-
+    /* Script WOW */
+    new WOW().init();
 });

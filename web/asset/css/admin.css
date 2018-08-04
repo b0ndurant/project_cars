@@ -8,7 +8,14 @@
     .navbar > .container .navbar-brand,
     .navbar > .container-fluid .navbar-brand {
         height: 100px;
-        margin-left: 22%;
+        margin-left: 15%;
+        padding: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-brand {
+        padding: 0;
     }
 }
 
@@ -133,5 +140,29 @@ body {
         border-left: 4px solid;
         border-bottom: 4px solid transparent;
         border-right: none;
+    }
+}
+
+/*------- CSS LOGOUT -------*/
+
+.navbar-inverse .navbar-nav>.log-out>.color-logout {
+    color: #18d26e;
+}
+
+/*---------- CSS COUNT ---------*/
+
+.count {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    color: #9d9d9d;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .nav .count {
+        position: absolute;
+        bottom: 20px;
+        text-align: center;
     }
 }
