@@ -1,3 +1,10 @@
+.navbar-header div {
+    font-size: 30px;
+    padding-top: 3px;
+    padding-left: 10px;
+    font-family: 'Fjalla';
+}
+
 .Logo {
     text-align: center;
 }
