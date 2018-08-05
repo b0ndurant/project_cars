@@ -83,6 +83,10 @@ body {
   transition: opacity ease 0.5s;
 }
 
+label {
+  font-size: 18px;
+}
+
 .login-help{
-  font-size: 12px;
+  font-size: 14px;
 }
