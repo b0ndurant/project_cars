@@ -159,6 +159,10 @@ class ArticleController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            unlink('uploads/images/'.$article->getMainPicture());
+            foreach ($article->getGalleryPicture() as $file) {
+                unlink('uploads/images/'.$file);
+            }
             $em = $this->getDoctrine()->getManager();
             $em->remove($article);
             $em->flush();

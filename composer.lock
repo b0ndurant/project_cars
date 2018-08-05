@@ -1323,16 +1323,16 @@
         },
         {
             "name": "knplabs/knp-components",
-            "version": "1.3.8",
+            "version": "v1.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/knp-components.git",
-                "reference": "b65f69ff04d2f1b7a67ae592273ca6f4d1aa3e5f"
+                "reference": "f0f830361ff0ee83ea5c5ffe49b429d2b0ff4266"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/knp-components/zipball/b65f69ff04d2f1b7a67ae592273ca6f4d1aa3e5f",
-                "reference": "b65f69ff04d2f1b7a67ae592273ca6f4d1aa3e5f",
+                "url": "https://api.github.com/repos/KnpLabs/knp-components/zipball/f0f830361ff0ee83ea5c5ffe49b429d2b0ff4266",
+                "reference": "f0f830361ff0ee83ea5c5ffe49b429d2b0ff4266",
                 "shasum": ""
             },
             "require": {
@@ -1349,13 +1349,6 @@
                 "symfony/property-access": ">=2.3"
             },
             "suggest": {
-                "doctrine/common": "to allow usage pagination with Doctrine ArrayCollection",
-                "doctrine/mongodb-odm": "to allow usage pagination with Doctrine ODM MongoDB",
-                "doctrine/orm": "to allow usage pagination with Doctrine ORM",
-                "doctrine/phpcr-odm": "to allow usage pagination with Doctrine ODM PHPCR",
-                "propel/propel1": "to allow usage pagination with Propel ORM",
-                "ruflin/Elastica": "to allow usage pagination with ElasticSearch Client",
-                "solarium/solarium": "to allow usage pagination with Solarium Client",
                 "symfony/property-access": "To allow sorting arrays"
             },
             "type": "library",
@@ -1392,7 +1385,7 @@
                 "pager",
                 "paginator"
             ],
-            "time": "2018-04-03T12:20:48+00:00"
+            "time": "2018-08-03T08:37:27+00:00"
         },
         {
             "name": "knplabs/knp-paginator-bundle",
@@ -2563,16 +2556,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v3.4.13",
+            "version": "v3.4.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "c406c5a4f11fc00b60d3ec585125350418c4568d"
+                "reference": "f50e17fa4edd6216f7fe5b908f04e64ba1d19a9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/c406c5a4f11fc00b60d3ec585125350418c4568d",
-                "reference": "c406c5a4f11fc00b60d3ec585125350418c4568d",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/f50e17fa4edd6216f7fe5b908f04e64ba1d19a9e",
+                "reference": "f50e17fa4edd6216f7fe5b908f04e64ba1d19a9e",
                 "shasum": ""
             },
             "require": {
@@ -2714,7 +2707,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2018-07-23T16:37:45+00:00"
+            "time": "2018-08-01T14:48:04+00:00"
         },
         {
             "name": "twig/twig",
@@ -2962,16 +2955,16 @@
         },
         {
             "name": "symfony/phpunit-bridge",
-            "version": "v3.4.13",
+            "version": "v3.4.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/phpunit-bridge.git",
-                "reference": "62c8349f21927b9a5975d89ee065e84d233a34e5"
+                "reference": "4519412e6b503e3ca4ef43fb6a92b75fb5667824"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/62c8349f21927b9a5975d89ee065e84d233a34e5",
-                "reference": "62c8349f21927b9a5975d89ee065e84d233a34e5",
+                "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/4519412e6b503e3ca4ef43fb6a92b75fb5667824",
+                "reference": "4519412e6b503e3ca4ef43fb6a92b75fb5667824",
                 "shasum": ""
             },
             "require": {
@@ -3024,7 +3017,7 @@
             ],
             "description": "Symfony PHPUnit Bridge",
             "homepage": "https://symfony.com",
-            "time": "2018-07-05T11:53:23+00:00"
+            "time": "2018-07-26T11:19:56+00:00"
         }
     ],
     "aliases": [],
