@@ -15,6 +15,15 @@
                     {{ form_widget(edit_form.title) }}
                 </div>
                 <div>
+                    <h3 class="years">Année</h3>
+                    {{ form_widget(edit_form.years) }}
+                </div>
+                <div>
+                    <h3 class="years">Kilometres</h3>
+                    {{ form_widget(edit_form.miles) }}
+                    {{ form_errors(edit_form.miles) }}
+                </div>
+                <div>
                     <h3 class="content">Description</h3>
                     {{ form_widget(edit_form.content) }}
                 </div>

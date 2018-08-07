@@ -12,16 +12,28 @@
             <div class="row">
                 {% for article in articles %}
                     <div class="col-md-4">
-                        <h4>
+                        <h3>
                             {{ article.title }}
-                        </h4>
-                        <p>
+                        </h3>
+                        <div class="picture">
                             <img src="{{ asset('uploads/images/' ~ article.mainPicture) }}">
-                        </p>
-                        <p>
-                            Prix : {{ article.price }} €
-                        </p>
-                        <a class="btn btn-primary" href="{{ path('article_show', { 'id': article.id }) }}">En savoir plus</a>
+                            <div class="content">
+                                <p>Garantie</p>
+                            </div>
+                        </div>
+                        <h4>
+                            <div class="col-md-12 years_miles_energy">
+                                <span class="years">{{ article.years }}</span><span class="miles">{{ article.miles }} Km</span><span class="energy">{{ article.energy }}</span>
+                            </div>
+                        </h4>
+                        <h3>
+                            <div class="col-md-12 price">
+                                Prix : {{ article.price }} €
+                            </div>
+                        </h3>
+                        <div class="col-md-12">
+                            <a class="btn btn-primary" href="{{ path('article_show', { 'id': article.id }) }}">En savoir plus</a>
+                        </div>
                     </div>
                 {% endfor %}
             </div>

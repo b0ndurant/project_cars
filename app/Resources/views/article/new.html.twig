@@ -11,23 +11,35 @@
 
                 {{ form_start(form) }}
                 <div>
-                    <p class="title">Titre</p>
+                    <h3 class="title">Titre</h3>
                     {{ form_widget(form.title) }}
                 </div>
                 <div>
-                    <p class="content">Description</p>
+                    <h3 class="years">Année</h3>
+                    {{ form_widget(form.years) }}
+                </div>
+                <div>
+                    <h3 class="years">Kilometres</h3>
+                    {{ form_widget(form.miles) }}
+                </div>
+                <div>
+                    <h3 class="years">Energie</h3>
+                    {{ form_widget(form.energy) }}
+                </div>
+                <div>
+                    <h3 class="content">Description</h3>
                     {{ form_widget(form.content) }}
                 </div>
                 <div>
-                    <p class="price">Prix</p>
+                    <h3 class="price">Prix</h3>
                     {{ form_widget(form.price) }}
                 </div>
                 <div>
-                    <p class="mainPicture">Photo Principale</p>
+                    <h3 class="mainPicture">Photo Principale</h3>
                     {{ form_widget(form.mainPicture) }}
                 </div>
                 <div>
-                    <p class="galleryPicture">Gallery Photo</p>
+                    <h3 class="galleryPicture">Gallery Photo</h3>
                     {{ form_widget(form.galleryPicture) }}
                 </div>
                 <div class="btn_create">

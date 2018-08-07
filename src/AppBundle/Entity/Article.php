@@ -31,6 +31,25 @@ class Article
     private $title;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="years", type="integer")
+     */
+    private $years;
+
+    /**
+     * @var string
+     *
+     * @Assert\Regex(
+     *     pattern="/[0-9 ]+$/",
+     *     message="veuillez rentrer un chiffre"
+     * )
+     *
+     * @ORM\Column(name="miles", type="string")
+     */
+    private $miles;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="content", type="text")
@@ -38,9 +57,21 @@ class Article
     private $content;
 
     /**
-     * @var float
+     * @var string
      *
-     * @ORM\Column(name="price", type="float")
+     * @ORM\Column(name="energy", type="text")
+     */
+    private $energy;
+
+    /**
+     * @var string
+     *
+     * @Assert\Regex(
+     *     pattern="/[0-9 \,]+$/",
+     *     message="veuillez rentrer un chiffre"
+     * )
+     *
+     * @ORM\Column(name="price", type="string")
      */
     private $price;
 
@@ -59,9 +90,9 @@ class Article
     private $galleryPicture;
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -69,7 +100,7 @@ class Article
     }
 
     /**
-     * Set title
+     * Set title.
      *
      * @param string $title
      *
@@ -83,7 +114,7 @@ class Article
     }
 
     /**
-     * Get title
+     * Get title.
      *
      * @return string
      */
@@ -93,7 +124,55 @@ class Article
     }
 
     /**
-     * Set content
+     * Set years.
+     *
+     * @param int $years
+     *
+     * @return Article
+     */
+    public function setYears($years)
+    {
+        $this->years = $years;
+
+        return $this;
+    }
+
+    /**
+     * Get years.
+     *
+     * @return int
+     */
+    public function getYears()
+    {
+        return $this->years;
+    }
+
+    /**
+     * Set miles.
+     *
+     * @param string $miles
+     *
+     * @return Article
+     */
+    public function setMiles($miles)
+    {
+        $this->miles = $miles;
+
+        return $this;
+    }
+
+    /**
+     * Get miles.
+     *
+     * @return string
+     */
+    public function getMiles()
+    {
+        return $this->miles;
+    }
+
+    /**
+     * Set content.
      *
      * @param string $content
      *
@@ -107,7 +186,7 @@ class Article
     }
 
     /**
-     * Get content
+     * Get content.
      *
      * @return string
      */
@@ -117,9 +196,33 @@ class Article
     }
 
     /**
-     * Set price
+     * Set energy.
      *
-     * @param float $price
+     * @param string $energy
+     *
+     * @return Article
+     */
+    public function setEnergy($energy)
+    {
+        $this->energy = $energy;
+
+        return $this;
+    }
+
+    /**
+     * Get energy.
+     *
+     * @return string
+     */
+    public function getEnergy()
+    {
+        return $this->energy;
+    }
+
+    /**
+     * Set price.
+     *
+     * @param string $price
      *
      * @return Article
      */
@@ -131,9 +234,9 @@ class Article
     }
 
     /**
-     * Get price
+     * Get price.
      *
-     * @return float
+     * @return string
      */
     public function getPrice()
     {
@@ -141,13 +244,13 @@ class Article
     }
 
     /**
-     * Set mainPicture
+     * Set mainPicture.
      *
-     * @param string $mainPicture
+     * @param string|null $mainPicture
      *
      * @return Article
      */
-    public function setMainPicture($mainPicture)
+    public function setMainPicture($mainPicture = null)
     {
         $this->mainPicture = $mainPicture;
 
@@ -155,9 +258,9 @@ class Article
     }
 
     /**
-     * Get mainPicture
+     * Get mainPicture.
      *
-     * @return string
+     * @return string|null
      */
     public function getMainPicture()
     {
@@ -165,13 +268,13 @@ class Article
     }
 
     /**
-     * Set galleryPicture
+     * Set galleryPicture.
      *
-     * @param array $galleryPicture
+     * @param array|null $galleryPicture
      *
      * @return Article
      */
-    public function setGalleryPicture($galleryPicture)
+    public function setGalleryPicture($galleryPicture = null)
     {
         $this->galleryPicture = $galleryPicture;
 
@@ -179,9 +282,9 @@ class Article
     }
 
     /**
-     * Get galleryPicture
+     * Get galleryPicture.
      *
-     * @return array
+     * @return array|null
      */
     public function getGalleryPicture()
     {

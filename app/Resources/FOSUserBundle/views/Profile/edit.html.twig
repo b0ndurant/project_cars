@@ -1,5 +1,44 @@
-{% extends "@FOSUser/layout.html.twig" %}
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends 'baseAdmin.html.twig' %}
 
-{% block fos_user_content %}
-{% include "@FOSUser/Profile/edit_content.html.twig" %}
-{% endblock fos_user_content %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('asset/css/profil.css') }}">
+{% endblock %}
+
+{% block body %}
+
+    <section id="profil">
+        <div class="container">
+            <div class="row">
+                <h1><i class="fa fa-user-edit"></i> Modifier votre email</h1>
+                {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' }} ) }}
+                <!-- Modifying firstname -->
+                <div class="col-md-6 border">
+                    <div>
+                        <h3>{{ form_label(form.username, 'Votre login :') }}</h3>
+                        {{ form_widget(form.username) }}
+                        {{ form_errors(form.username) }}
+                    </div>
+                    <!-- End modifying firstname -->
+
+                    <!-- Modifying email -->
+                    <div>
+                        <h3>{{ form_label(form.email, 'Votre email :') }}</h3>
+                        {{ form_widget(form.email) }}
+                        {{ form_errors(form.email) }}
+                    </div>
+                    <!-- End modifying email -->
+                    <h3>{{ form_end(form) }}</h3>
+
+                    <!-- Submit button -->
+                    <div class="submit">
+                        <input type="submit" class="btn btn-primary" value="{{ 'Modifier votre profil'|trans }}"/>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}

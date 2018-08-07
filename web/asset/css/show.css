@@ -7,18 +7,33 @@
 
 #cars_show #main_area #myCarousel .item img {
     width: 100%;
-    height: 500px;
+    height: 560px;
 }
 
 #cars_show h2 {
     text-align: center;
     padding-bottom: 30px;
+    font-weight: bolder;
+    margin-top: 0;
 }
 
 #cars_show .description h3 {
     padding-bottom: 20px;
 }
 
+#cars_show h4 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 #cars_show .description {
     padding-bottom: 30px;
+}
+
+#cars_show .description p {
+    font-size: 18px;
+}
+
+#cars_show .price {
+    font-weight: bold;
 }

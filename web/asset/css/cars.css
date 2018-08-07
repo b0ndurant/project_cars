@@ -2,6 +2,7 @@
     padding-top: 60px;
     padding-bottom: 50px;
     text-align: center;
+    text-decoration: underline;
 }
 
 #cars_index .navigation, .btn_create {
@@ -14,6 +15,45 @@
 }
 
 #cars_index img {
-    width: 80%;
-    height: 350px;
+    width: 100%;
+    height: 300px;
+    border-radius: 20px;
+}
+
+#cars_index .years, .miles {
+    border-right: 2px solid black;
+    padding-right: 10px;
+}
+
+#cars_index .miles, .energy {
+    padding-left: 10px;
+}
+
+#cars_index .years_miles_energy {
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+ #cars_index .price {
+     padding-bottom: 20px;
+ }
+/*-------- OVERLAY -------*/
+.picture {
+    position: relative;
+}
+
+.picture .content {
+    position: absolute; /* Position the background text */
+    bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+    background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+    color: #f1f1f1; /* Grey text */
+    width: 100%; /* Full width */
+    padding-top: 10px; /* Some padding */
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.content p {
+    font-size: 20px;
+    letter-spacing: 6px;
+    font-weight: 900;
 }

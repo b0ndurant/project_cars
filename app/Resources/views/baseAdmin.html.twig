@@ -40,7 +40,13 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ path('article_index') }}">Liste vehicules</a></li>
                     <li><a href="{{ path('article_new') }}">Ajouter un vehicules</a></li>
-                    <li><a href="{{ path('fos_user_profile_edit') }}">Mon compte</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mon compte<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('fos_user_profile_edit') }}">Modifier email</a></li>
+                            <li><a href="{{ path('fos_user_change_password') }}">Modifier mot de passe</a></li>
+                        </ul>
+                    </li>
                     <li><a href="{{ path('homepage') }}">Retourner sur le site web</a></li>
 
 
@@ -70,6 +76,7 @@
 <script src="{{ asset('asset/js/jquery/jquery-3.3.1.min.js') }}"></script>
 <script src="{{ asset('asset/js/Bootstrap/bootstrap.min.js') }}"></script>
 <script src="{{ asset('asset/js/Font-awesome/all.js') }}"></script>
+<script src="{{ asset('asset/js/main.js') }}"></script>
 {% block javascripts %}
 {% endblock %}
 

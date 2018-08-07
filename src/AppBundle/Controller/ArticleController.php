@@ -81,7 +81,8 @@ class ArticleController extends Controller
             $em->persist($article);
             $em->flush();
 
-            return $this->redirectToRoute('article_show', array('id' => $article->getId()));
+            $this->addFlash("article_new", "Votre vehicule a bien été enregistré.");
+            return $this->redirectToRoute('article_index');
         }
 
         return $this->render('article/new.html.twig', array(
@@ -134,7 +135,8 @@ class ArticleController extends Controller
             $article->setGalleryPicture($images);
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('article_index', array('id' => $article->getId()));
+            $this->addFlash("article_edit", "Votre vehicule a bien été modifié.");
+            return $this->redirectToRoute('article_index');
         }
 
         return $this->render('article/edit.html.twig', array(

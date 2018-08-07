@@ -33,6 +33,34 @@
             </div>
         </div>
     </section>
+    {% for message in app.flashes('article_new') %}
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>{{ message }}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    {% for message in app.flashes('article_edit') %}
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>{{ message }}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
 
 
 {% endblock %}
