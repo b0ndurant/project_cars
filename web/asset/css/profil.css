@@ -1,0 +1,21 @@
+#profil h1 {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+#profil .border {
+    float: none;
+    margin: auto;
+}
+
+#profil .submit {
+    text-align: center;
+}
+
+#profil div {
+    padding-bottom: 20px;
+}
+
+#profil input {
+    width: 100%;
+}
