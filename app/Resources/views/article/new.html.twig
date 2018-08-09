@@ -13,26 +13,44 @@
                 <div>
                     <h3 class="title">Titre</h3>
                     {{ form_widget(form.title) }}
+                    <div class="errors">
+                        {{ form_errors(form.title) }}
+                    </div>
                 </div>
                 <div>
                     <h3 class="years">Année</h3>
                     {{ form_widget(form.years) }}
+                    <div class="errors">
+                        {{ form_errors(form.years) }}
+                    </div>
                 </div>
                 <div>
                     <h3 class="years">Kilometres</h3>
                     {{ form_widget(form.miles) }}
+                    <div class="errors">
+                        {{ form_errors(form.miles) }}
+                    </div>
                 </div>
                 <div>
                     <h3 class="years">Energie</h3>
                     {{ form_widget(form.energy) }}
+                    <div class="errors">
+                        {{ form_errors(form.energy) }}
+                    </div>
                 </div>
                 <div>
                     <h3 class="content">Description</h3>
                     {{ form_widget(form.content) }}
+                    <div class="errors">
+                        {{ form_errors(form.content) }}
+                    </div>
                 </div>
                 <div>
                     <h3 class="price">Prix</h3>
                     {{ form_widget(form.price) }}
+                    <div class="errors">
+                        {{ form_errors(form.price) }}
+                    </div>
                 </div>
                 <div>
                     <h3 class="mainPicture">Photo Principale</h3>
@@ -52,4 +70,18 @@
             </div>
         </div>
     </section>
+    {% for message in app.flashes('no_picture') %}
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>{{ message }}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
 {% endblock %}

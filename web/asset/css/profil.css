@@ -3,6 +3,10 @@
     padding-bottom: 50px;
 }
 
+#profil h2 {
+    margin-bottom: 35px;
+}
+
 #profil .border {
     float: none;
     margin: auto;
@@ -14,8 +18,4 @@
 
 #profil div {
     padding-bottom: 20px;
-}
-
-#profil input {
-    width: 100%;
 }

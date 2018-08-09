@@ -80,7 +80,7 @@ class ContactController extends Controller
         $message = \Swift_Message::newInstance($data["subject"])
             ->setFrom($this->container->getParameter('mailer_user'))
             ->setCharset('UTF-8')
-            ->setTo($data["email"])
+            ->setTo($this->container->getParameter('mailer_user'))
             ->setBody(
                 $this->renderView(
                     'email/registration.html.twig',

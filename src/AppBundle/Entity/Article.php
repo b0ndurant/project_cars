@@ -26,12 +26,18 @@ class Article
     /**
      * @var string
      *
+     *
      * @ORM\Column(name="title", type="string", length=128)
      */
     private $title;
 
     /**
      * @var integer
+     *
+     *@Assert\Regex(
+     *     pattern="/[0-9]+$/",
+     *     message="veuillez rentrer un chiffre"
+     * )
      *
      * @ORM\Column(name="years", type="integer")
      */
@@ -78,14 +84,14 @@ class Article
     /**
      * @var string
      *
-     * @ORM\Column(name="mainPicture", type="string", length=255,nullable=true)
+     * @ORM\Column(name="mainPicture", type="string", length=255)
      */
     private $mainPicture;
 
     /**
      * @var array
      *
-     * @ORM\Column(name="galleryPicture", type="array", nullable=true)
+     * @ORM\Column(name="galleryPicture", type="array")
      */
     private $galleryPicture;
 

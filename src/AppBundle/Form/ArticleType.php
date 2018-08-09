@@ -27,7 +27,8 @@ class ArticleType extends AbstractType
                                 "message" => "Vous avez oublié de mettre un titre")
                         ),
                     )
-                ))
+                )
+            )
             ->add('years',TextType::class,
                 array('attr' => array('placeholder' => 'Année du vehicule'),
                     'constraints' => array(
@@ -48,8 +49,11 @@ class ArticleType extends AbstractType
                 ))
             ->add('energy',ChoiceType::class, array(
                 'choices' => array(
-                    'gazoil' => 'gazoil',
+                    'diesel' => 'diesel',
                     'essence' => 'essence',
+                    'ethanol' => 'ethanol',
+                    'GPL' => 'GPL',
+                    'hybrid' => 'hybrid',
                 ),
             ))
             ->add('content',TextareaType::class,

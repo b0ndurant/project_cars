@@ -1,44 +1,105 @@
-{% trans_default_domain 'FOSUserBundle' %}
+{# app/Resources/FOSUserBundle/views/Profile/edit.html.twig #}
 {% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Modifier votre profil{% endblock %}
 
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('asset/css/profil.css') }}">
+    <!-- Additional CSS links-->
 {% endblock %}
 
 {% block body %}
-
+    <!-- Two forms, one to edit profile and one to change password -->
     <section id="profil">
+        <h1>Modifier mon compte</h1>
+        {% for flash_message in app.session.flashBag.get('edited') %}
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                {{ flash_message }}
+            </div>
+        {% endfor %}
+
         <div class="container">
             <div class="row">
-                <h1><i class="fa fa-user-edit"></i> Modifier votre email</h1>
-                {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' }} ) }}
-                <!-- Modifying firstname -->
-                <div class="col-md-6 border">
-                    <div>
-                        <h3>{{ form_label(form.username, 'Votre login :') }}</h3>
-                        {{ form_widget(form.username) }}
-                        {{ form_errors(form.username) }}
-                    </div>
-                    <!-- End modifying firstname -->
+                <!-- Profile form start -->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h2><i class="fa fa-user-edit"></i> Modifier votre profil</h2>
+                            {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' }} ) }}
+                            <!-- Modifying firstname -->
+                            <div class="form-group form-error">
+                                <h4>{{ form_label(form.username, 'Votre login :') }}</h4>
+                                {{ form_widget(form.username, {'attr': {'class':'form-control', 'placeholder': user.username }} ) }}
+                                {{ form_errors(form.username) }}
+                            </div>
+                            <!-- End modifying firstname -->
 
-                    <!-- Modifying email -->
-                    <div>
-                        <h3>{{ form_label(form.email, 'Votre email :') }}</h3>
-                        {{ form_widget(form.email) }}
-                        {{ form_errors(form.email) }}
-                    </div>
-                    <!-- End modifying email -->
-                    <h3>{{ form_end(form) }}</h3>
+                            <!-- Modifying email -->
+                            <div class="form-group form-error">
+                                <h4>{{ form_label(form.email, 'Votre email :') }}</h4>
+                                {{ form_widget(form.email, {'attr': {'class':'form-control', 'placeholder': user.email }} ) }}
+                                {{ form_errors(form.email) }}
+                            </div>
+                            <!-- End modifying email -->
 
-                    <!-- Submit button -->
-                    <div class="submit">
-                        <input type="submit" class="btn btn-primary" value="{{ 'Modifier votre profil'|trans }}"/>
-                    </div>
+                            <!-- Submit button -->
+                            <input type="submit" class="btn btn-primary" value="{{ 'Modifier votre profil'|trans }}"/>
 
+                            {{ form_end(form) }}
+                        </div>
+
+                        <div class="col-md-6">
+                            <h2><i class="fa fa-user-lock"></i> Modifier votre mot de passe</h2>
+                            {{ form_start(formPassword) }}
+                            <!-- Current password -->
+                            <div class="form-group form-error">
+                                <h4>{{ form_label(formPassword.current_password, 'Entrer votre mot de passe actuel :') }}</h4>
+                                {% if formPassword.current_password.vars.errors|length %}
+                                    {{ form_widget(formPassword.current_password,
+                                        formPassword.current_password.vars|merge({'attr': {'autofocus': null, 'class':'form-control', 'placeholder': 'Entrez votre mot de passe actuel'|trans}} ) ) }}
+                                    {{ form_errors(formPassword.current_password) }}
+                                {% else %}
+                                    {{ form_widget(formPassword.current_password, { 'attr': {'class': 'form-control', 'placeholder': 'Entrez votre mot de passe actuel'|trans}} ) }}
+                                {% endif %}
+                            </div>
+                            <!-- End current password -->
+
+                            <!-- New password -->
+                            <div class="form-group form-error">
+                                <h4>{{ form_label(formPassword.current_password, 'Entrer votre nouveau mot de passe :') }}</h4>
+                                {% if formPassword.plainPassword.first.vars.errors|length %}
+                                    {{ form_widget(formPassword.plainPassword.first,
+                                        formPassword.plainPassword.first.vars|merge({'attr': {'autofocus': null, 'class': 'form-control', 'placeholder': 'Entrez votre nouveau mot de passe'|trans}} ) ) }}
+                                    {{ form_errors(formPassword.plainPassword.first) }}
+                                {% else %}
+                                    {{ form_widget(formPassword.plainPassword.first, { 'attr': {'class': 'form-control', 'placeholder': 'Entrez votre nouveau mot de passe'|trans}} ) }}
+                                {% endif %}
+                            </div>
+                            <!-- End new password -->
+
+                            <!-- New password's confirmation -->
+                            <div class="form-group form-error">
+                                <h4>{{ form_label(formPassword.current_password, 'Confirmer votre mot de passe :') }}</h4>
+                                {% if formPassword.plainPassword.second.vars.errors|length %}
+                                    {{ form_widget(formPassword.plainPassword.second,
+                                        formPassword.plainPassword.second.vars|merge({'attr': {'autofocus': null, 'class': 'form-control', 'placeholder': 'Confirmez votre nouveau mot de passe'|trans}} ) ) }}
+                                    {{ form_errors(formPassword.plainPassword.second) }}
+                                {% else %}
+                                    {{ form_widget(formPassword.plainPassword.second, { 'attr': {'class': 'form-control', 'placeholder': 'Confirmez votre nouveau mot de passe'|trans}} ) }}
+                                {% endif %}
+                            </div>
+                            <!-- End new password's confirmation -->
+
+                            <!-- Submit button -->
+                            <input type="submit" class="btn btn-primary" value="{{ 'Modifier votre mot de passe'|trans }}"/>
+                            <!-- End submit button -->
+
+                            {{ form_end(formPassword) }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-
 {% endblock %}

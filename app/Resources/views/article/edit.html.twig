@@ -13,6 +13,9 @@
                 <div>
                     <h3 class="title">Titre</h3>
                     {{ form_widget(edit_form.title) }}
+                    <div class="errors">
+                        {{ form_errors(edit_form.title) }}
+                    </div>
                 </div>
                 <div>
                     <h3 class="years">Année</h3>
@@ -21,7 +24,13 @@
                 <div>
                     <h3 class="years">Kilometres</h3>
                     {{ form_widget(edit_form.miles) }}
-                    {{ form_errors(edit_form.miles) }}
+                    <div class="errors">
+                        {{ form_errors(edit_form.miles) }}
+                    </div>
+                </div>
+                <div>
+                    <h3 class="years">Energie</h3>
+                    {{ form_widget(edit_form.energy) }}
                 </div>
                 <div>
                     <h3 class="content">Description</h3>
@@ -30,6 +39,9 @@
                 <div>
                     <h3 class="price">Prix</h3>
                     {{ form_widget(edit_form.price) }}
+                    <div class="errors">
+                        {{ form_errors(edit_form.price) }}
+                    </div>
                 </div>
                 <div>
                     <h3 class="mainPicture">Photo principale</h3>

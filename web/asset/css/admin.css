@@ -1,3 +1,9 @@
+/*----------- CLASS ERRORS --------*/
+
+.errors ul {
+    list-style-type: none;
+    color: red;
+}
 /*------------ SIDEBAR ------------*/
 
 @media (min-width: 768px) {

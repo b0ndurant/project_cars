@@ -11,14 +11,14 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Article controller.
  *
- * @Route("article")
+ * @Route("/")
  */
 class ArticleController extends Controller
 {
     /**
      * Lists all article entities.
      *
-     * @Route("/", name="article_index")
+     * @Route("admin/article/", name="article_index")
      * @Method("GET")
      * @param $request
      * @return \Symfony\Component\HttpFoundation\Response
@@ -48,7 +48,7 @@ class ArticleController extends Controller
     /**
      * Creates a new article entity.
      *
-     * @Route("/new", name="article_new")
+     * @Route("admin/article/new/", name="article_new")
      * @Method({"GET", "POST"})
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
@@ -63,6 +63,13 @@ class ArticleController extends Controller
             $files = $article->getGalleryPicture();
             $mainPicture = $article->getMainPicture();
 
+            if ($mainPicture == null) {
+                $this->addFlash("no_picture", "il vous manque des photos");
+                return $this->render('article/new.html.twig', array(
+                    'article' => $article,
+                    'form' => $form->createView(),
+                ));
+            }
             $fileMain = md5(uniqid()).'.'. $mainPicture->guessExtension();
             $mainPicture->move($this->getParameter('image_directory'),$fileMain);
             $images = array();
@@ -94,7 +101,7 @@ class ArticleController extends Controller
     /**
      * Displays a form to edit an existing article entity.
      *
-     * @Route("/{id}/edit", name="article_edit")
+     * @Route("admin/article/{id}/edit", name="article_edit")
      * @Method({"GET", "POST"})
      * @param Request $request
      * @param Article $article
@@ -138,6 +145,11 @@ class ArticleController extends Controller
             $this->addFlash("article_edit", "Votre vehicule a bien été modifié.");
             return $this->redirectToRoute('article_index');
         }
+        else {
+            $article->setMainPicture($mainPicture);
+            $article->setGalleryPicture($galleryPicture);
+            $this->getDoctrine()->getManager()->flush();
+        }
 
         return $this->render('article/edit.html.twig', array(
             'article' => $article,
@@ -149,7 +161,7 @@ class ArticleController extends Controller
     /**
      * Deletes a article entity.
      *
-     * @Route("/{id}", name="article_delete")
+     * @Route("admin/article/{id}", name="article_delete")
      * @Method("DELETE")
      * @param Request $request
      * @param Article $article
