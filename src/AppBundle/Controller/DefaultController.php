@@ -71,4 +71,15 @@ class DefaultController extends Controller
             'article' => $article,
         ));
     }
+
+    /**
+     * @Route("/mentions legales", name="mentions_legals")
+     * @Method("GET")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function mentions_legalsAction()
+    {
+
+        return $this->render('mentions_legals/mentions_legals.html.twig');
+    }
 }

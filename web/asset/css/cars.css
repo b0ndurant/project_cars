@@ -14,6 +14,10 @@
     padding-bottom: 50px;
 }
 
+#cars_index h3 {
+    height: 70px;
+}
+
 #cars_index img {
     width: 100%;
     height: 300px;

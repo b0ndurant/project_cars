@@ -10,11 +10,17 @@
     height: 560px;
 }
 
-#cars_show h2 {
+#cars_show .border {
+    border: solid 1px black;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+#cars_show h1 {
     text-align: center;
     padding-bottom: 30px;
     font-weight: bolder;
-    margin-top: 0;
+    padding-top: 50px;
 }
 
 #cars_show .description h3 {
@@ -44,5 +50,8 @@
     }
     #carousel-bounding-box {
         padding-bottom: 30px;
+    }
+    #carousel-text {
+        padding-bottom: 20px;
     }
 }

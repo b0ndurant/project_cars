@@ -6,7 +6,7 @@
     <section id="cars_show">
         <div class="container">
             <div class="row">
-                <h1>Vehicules</h1>
+                <h1>{{ article.title }}</h1>
             </div>
         </div>
         <div class="container">
@@ -37,20 +37,20 @@
                                     </a>
                                 </div>
                             </div>
-
                             <div class="col-sm-4" id="carousel-text"></div>
 
                             <div id="slide-content" style="display: none;">
                                 <div id="slide-content-0">
-                                    <h2>{{ article.title }}</h2>
-                                    <h4>Année : {{ article.years }}</h4>
-                                    <h4>Kilometre : {{ article.miles }} km</h4>
-                                    <h4>Energie : {{ article.energy }}</h4>
-                                    <div class="description">
-                                        <h3>description : </h3>
-                                        <p>{{ article.content }}</p>
+                                    <div class="border">
+                                        <h4>Année : {{ article.years }}</h4>
+                                        <h4>Kilometre : {{ article.miles }} km</h4>
+                                        <h4>Energie : {{ article.energy }}</h4>
+                                        <div class="description">
+                                            <h3>description : </h3>
+                                            <p>{{ article.content }}</p>
+                                        </div>
+                                        <h3 class="price">Prix : {{ article.price }} €</h3>
                                     </div>
-                                    <h3 class="price">Prix : {{ article.price }} €</h3>
                                 </div>
                             </div>
                         </div>

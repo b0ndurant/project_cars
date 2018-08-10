@@ -77,22 +77,23 @@
                     </div>
                 </div>
                 <div class="row copyrights">
-                    <div class="col-sm-3">
-                        <p><a href="{{ path('article_index') }}">Espace administrateur</a></p>
+                    <div class="col-sm-2">
+                        <p><a href="{{ path('mentions_legals') }}">Mentions Legales</a></p>
                     </div>
                     {% if is_granted('ROLE_ADMIN') %}
+                        <div class="col-sm-2">
+                            <p><a href="{{ path('article_index') }}">Espace administrateur</a></p>
+                        </div>
                         <div class="col-sm-3 visit">
-                            <span>Nombre de visiteurs : </span>
-                            <!-- DEBUT CODE compteur-gratuit.org -->
-                            <script language="JavaScript" src="http://www.compteur-gratuit.org/count/c.js?id=20935902&t=3&d=32&n=6&s=0"></script><noscript>un <a target="_blank" href="http://www.compteur-gratuit.org">compteur gratuit</a> pour votre site web</noscript>
-                            <!-- FIN CODE compteur-gratuit.org -->
+                            <!-- Start of CuterCounter Code -->
+                            <span>Nombres de visites : </span><img src="http://www.cutercounter.com/hit.php?id=21825&nd=6&style=37" border="0" alt="free counter">
+                            <!-- End of CuterCounter Code -->
                         </div>
                     {% else %}
-                        <div class="col-sm-3 anonymous">
-                            <!-- DEBUT CODE compteur-gratuit.org -->
-                            <script language="JavaScript" src="http://www.compteur-gratuit.org/count/c.js?id=20935902&t=3&d=32&n=6&s=0"></script><noscript>un <a target="_blank" href="http://www.compteur-gratuit.org">compteur gratuit</a> pour votre site web</noscript>
-                            <!-- FIN CODE compteur-gratuit.org -->
-                        </div>
+                        <div class="col-sm-3 hidden">
+                            <!-- Start of CuterCounter Code -->
+                            <img src="http://www.cutercounter.com/hit.php?id=21825&nd=6&style=37" border="0" alt="free counter">
+                            <!-- End of CuterCounter Code --></div>
                     {% endif %}
                 </div>
                 <!--/.row-->
