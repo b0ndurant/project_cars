@@ -37,3 +37,12 @@
 #cars_show .price {
     font-weight: bold;
 }
+
+@media (max-width: 768px) {
+    #cars_show #main_area #myCarousel .item img  {
+        height: auto;
+    }
+    #carousel-bounding-box {
+        padding-bottom: 30px;
+    }
+}

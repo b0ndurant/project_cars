@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Martin aurelien">
     <meta name="description" content="cars est un vendeur d'occasion garantie">
-    <meta name="keywords" content="vehicule d'occasion, utilitaire d'occasion, garantie, roubaix, occasion">
+    <meta name="keywords" content="vehicule d'occasion, utilitaire d'occasion, garantie, roubaix, occasion, rlnegoceauto">
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
 
     <title>RL Négoce Auto {% block title %}{% endblock %}</title>
@@ -62,24 +62,38 @@
         <div class="footer" id="footer">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-4 col-xs-12 contact">
+                    <div class="col-sm-4 contact">
                         <h3> Contact </h3>
                         <p><i class="fas fa-envelope"></i> : rlnegoceauto@gmail.com </p>
                         <p><i class="fas fa-phone"></i> : 07.53.46.63.64 </p>
                     </div>
-                    <div class="col-md-4 col-xs-12 times_open">
+                    <div class="col-sm-4 times_open">
                         <h3> Horaires d'ouvertures </h3>
                         <p>Du lundi au samedi : 9h00 à 21h00</p>
                         <p>Le dimanche : 10h00 à 15h00</p>
                     </div>
-                    <div class="col-md-4 col-xs-12 logo_footer">
+                    <div class="col-sm-4 logo_footer">
                         <img src="{{ asset('asset/img/Logo.png') }}">
                     </div>
                 </div>
                 <div class="row copyrights">
-                    <div class="col-md-3 col-xs-12">
+                    <div class="col-sm-3">
                         <p><a href="{{ path('article_index') }}">Espace administrateur</a></p>
                     </div>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <div class="col-sm-3 visit">
+                            <span>Nombre de visiteurs : </span>
+                            <!-- DEBUT CODE compteur-gratuit.org -->
+                            <script language="JavaScript" src="http://www.compteur-gratuit.org/count/c.js?id=20935902&t=3&d=32&n=6&s=0"></script><noscript>un <a target="_blank" href="http://www.compteur-gratuit.org">compteur gratuit</a> pour votre site web</noscript>
+                            <!-- FIN CODE compteur-gratuit.org -->
+                        </div>
+                    {% else %}
+                        <div class="col-sm-3 anonymous">
+                            <!-- DEBUT CODE compteur-gratuit.org -->
+                            <script language="JavaScript" src="http://www.compteur-gratuit.org/count/c.js?id=20935902&t=3&d=32&n=6&s=0"></script><noscript>un <a target="_blank" href="http://www.compteur-gratuit.org">compteur gratuit</a> pour votre site web</noscript>
+                            <!-- FIN CODE compteur-gratuit.org -->
+                        </div>
+                    {% endif %}
                 </div>
                 <!--/.row-->
             </div>

@@ -1,5 +1,8 @@
 /*-----------GENERAL--------*/
 
+.anonymous {
+    display: none;
+}
 @font-face {
     font-family: "bitter";
     src: url("fonts/font-bitter/Bitter-Regular.ttf") format("opentype");
@@ -47,11 +50,15 @@ h1, h2 {
     border-top: 1px solid #DDDDDD;
 }
 
-.footer p {
+.footer p, .copyrights span {
     color: white;
 }
 
-.footer img {
+.footer .copyrights .visit {
+    float: right;
+}
+
+.footer .logo_footer img {
     width: 20vw;
 }
 .footer h3 {
@@ -77,8 +84,20 @@ footer .copyrights a {
     .logo_footer{
         text-align: center;
     }
-    .logo_footer img {
+    .footer .logo_footer img {
         width: 60%;
+    }
+    .footer .copyrights .visit {
+        float: none;
+    }
+}
+
+@media (min-width: 767px) {
+    .logo_footer img {
+        padding-top: 25px;
+    }
+    .visit {
+        float: none;
     }
 }
 
