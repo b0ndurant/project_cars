@@ -63,6 +63,7 @@ class ArticleController extends Controller
             $files = $article->getGalleryPicture();
             $mainPicture = $article->getMainPicture();
 
+
             if ($mainPicture == null) {
                 $this->addFlash("no_picture", "il vous manque des photos");
                 return $this->render('article/new.html.twig', array(
@@ -72,12 +73,17 @@ class ArticleController extends Controller
             }
             $fileMain = md5(uniqid()).'.'. $mainPicture->guessExtension();
             $mainPicture->move($this->getParameter('image_directory'),$fileMain);
+            $compress = imagecreatefromjpeg('../web/uploads/images/'.$fileMain);
+            imagejpeg($compress,'../web/uploads/images/'.$fileMain,50);
+
             $images = array();
 
             if ($files != null) {
                 foreach ($files as $file) {
                     $filename = md5(uniqid()) . '.' . $file->guessExtension();
                     $file->move($this->getParameter('image_directory'), $filename);
+                    $compress = imagecreatefromjpeg('../web/uploads/images/'.$filename);
+                    imagejpeg($compress,'../web/uploads/images/'.$filename,50);
                     $images[] = $filename;
                 }
             }
@@ -124,17 +130,26 @@ class ArticleController extends Controller
                 $fileMain = $mainPicture;
             }
             else {
+                unlink('uploads/images/'.$mainPicture);
                 $fileMain = md5(uniqid()) . '.' . $file->guessExtension();
                 $file->move($this->getParameter('image_directory'), $fileMain);
+                $compress = imagecreatefromjpeg('../web/uploads/images/'.$fileMain);
+                imagejpeg($compress,'../web/uploads/images/'.$fileMain,50);
             }
             if ($files == null) {
                 $images = $galleryPicture;
             }
             else {
+                foreach ($galleryPicture as $file) {
+                    unlink('uploads/images/'.$file);
+                }
                 $images = array();
+
                 foreach ($files as $file) {
                     $filename = md5(uniqid()) . '.' . $file->guessExtension();
                     $file->move($this->getParameter('image_directory'), $filename);
+                    $compress = imagecreatefromjpeg('../web/uploads/images/'.$filename);
+                    imagejpeg($compress,'../web/uploads/images/'.$filename,50);
                     $images[] = $filename;
                 }
             }

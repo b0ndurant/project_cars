@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Article;
 use AppBundle\Entity\User;
+use AppBundle\Entity\Visitor;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -17,15 +18,27 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        // replace this example code with whatever you need
         $em = $this->getDoctrine()->getManager();
         $articles = $em->getRepository('AppBundle:Article')
             ->findBy(array(), array('id'=> 'desc'), 4, 0);
 
+        //Count Visitor
+        $visitor = new Visitor();
+        $count_visit = $em->getRepository(Visitor::class)->findAll();
+
+        $ip = $_SERVER['REMOTE_ADDR'];
+        $hash = hash('md5',$ip);
+        $result = $em->getRepository(Visitor::class)->findOneBy(['hashIp'=> $hash]);
+        if ($result == null) {
+            $visitor->setHashIp($hash);
+            $em->persist($visitor);
+            $em->flush();
+        }
 
 
         return $this->render('default/index.html.twig', [
             'articles' => $articles,
+            'count_visit' => $count_visit,
         ]);
     }
 
@@ -79,7 +92,6 @@ class DefaultController extends Controller
      */
     public function mentions_legalsAction()
     {
-
         return $this->render('mentions_legals/mentions_legals.html.twig');
     }
 }

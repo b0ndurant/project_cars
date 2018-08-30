@@ -86,14 +86,8 @@
                         </div>
                         <div class="col-sm-3 visit">
                             <!-- Start of CuterCounter Code -->
-                            <span>Nombres de visites : </span><img src="http://www.cutercounter.com/hit.php?id=22367&nd=6&style=37" border="0" alt="hit counter">
+                            <span>Nombres de visites : {{ count_visit|length }}</span>
                         </div>
-                    {% else %}
-                        <div class="col-sm-3 hidden">
-                            <!-- Start of CuterCounter Code -->
-                            <img src="http://www.cutercounter.com/hit.php?id=22367&nd=6&style=37" border="0" alt="hit counter">
-                            <!-- End of CuterCounter Code -->
-                            </div>
                     {% endif %}
                 </div>
                 <!--/.row-->
